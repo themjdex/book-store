@@ -70,7 +70,7 @@ Rating.belongsTo(Book);
 Book.hasMany(BasketBook);
 BasketBook.belongsTo(Book);
 
-Book.hasMany(BookInfo);
+Book.hasMany(BookInfo, {as: 'info'});
 BookInfo.belongsTo(Book);
 
 Type.belongsToMany(Author, {through: TypeAuthor});
