@@ -1,8 +1,9 @@
 const Router = require('express');
 const router = new Router();
 const bookController = require('../controllers/bookController');
+const checkRole = require('../middlewares/checkRoleMiddleware');
 
-router.post('/', bookController.create);
+router.post('/', checkRole('ADMIN'), bookController.create);
 router.get('/', bookController.getAll);
 router.get('/:id', bookController.getOne);
 
